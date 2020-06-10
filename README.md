@@ -3,3 +3,4 @@ Intersnhip assigned work:
 2) class & objects and Python MySql
 3) Multithreading & PyODBC
 4) Multiprocessing
+5) asyncIO program
