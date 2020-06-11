@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Celebal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<h1>Welcome to Celebal Technologies</h1>
+  <h2>CRUD Operations using Flask</h2>
+  <p>Press the button below to perform the operations.</p>            
+  <table class="table">
+    <thead>
+      <tr>
+      	<th>Sno</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for posts in posts %}
+      <tr>
+        <td>{{ posts.sno }}</td>
+        <td>{{ posts.Fname }}</td>
+        <td>{{ posts.Lname }}</td>
+        <td><BUTTON>Update</BUTTON></td>
+        <td><BUTTON>Delete</BUTTON></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
