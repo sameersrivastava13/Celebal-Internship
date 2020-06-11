@@ -5,3 +5,4 @@ Intersnhip assigned work:
 4) Multiprocessing
 5) asyncIO program
 6) Rest Api using the Flask Framework.
+7) CRUD operations using Flask.
