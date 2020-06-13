@@ -7,3 +7,4 @@ Intersnhip assigned work:
 6) Rest Api using the Flask Framework.
 7) CRUD operations using Flask.
 8) Selenium 
+9) From CRUD operations implemented Update Operation.
