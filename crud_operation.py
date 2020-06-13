@@ -44,5 +44,14 @@ def update(sno):
     post = Posts.query.filter_by(sno=sno).first()
     return render_template("update.html", params=params, post=post, sno=sno)
 
+
+@app.route("/delete/<int:sno>", methods=['GET','POST'])
+def delete(sno):
+    post = Posts.query.filter_by(sno=sno).first()
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/')
+
+
 if __name__ == '__main__':
     app.run(debug=True)

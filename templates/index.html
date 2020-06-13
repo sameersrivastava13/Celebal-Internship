@@ -30,8 +30,8 @@
         <td>{{ posts.sno }}</td>
         <td>{{ posts.Fname }}</td>
         <td>{{ posts.Lname }}</td>
-        <td><BUTTON><a href="/update/{{posts.sno}}" >Update</BUTTON></td>
-        <td><BUTTON>Delete</BUTTON></td>
+        <td><a href="/update/{{posts.sno}}"><BUTTON class="btn btn-primary">Update</BUTTON></td>
+        <td><a href="/delete/{{posts.sno}}"><BUTTON class="btn btn-primary">Delete</BUTTON></a></td>
       </tr>
       {% endfor %}
     </tbody>
