@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, redirect
 import json
 from flask_sqlalchemy import SQLAlchemy
 
@@ -26,6 +26,23 @@ if local_server:
 def display():
     posts = Posts.query.all()
     return render_template('index.html',params=params,posts=posts)
+
+
+
+@app.route('/update/<int:sno>',methods=['GET','POST'])
+def update(sno):
+    if request.method == "POST":
+        Fname = request.form.get('Fname')
+        Lname = request.form.get('Lname')
+
+        post = Posts.query.filter_by(sno=sno).first()
+        post.Fname = Fname
+        post.Lname = Lname
+        db.session.commit()
+        return redirect('/update/' + str(sno))
+
+    post = Posts.query.filter_by(sno=sno).first()
+    return render_template("update.html", params=params, post=post, sno=sno)
 
 if __name__ == '__main__':
     app.run(debug=True)
