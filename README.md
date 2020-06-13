@@ -8,3 +8,4 @@ Intersnhip assigned work:
 7) CRUD operations using Flask.
 8) Selenium 
 9) From CRUD operations implemented Update Operation.
+10) From CRUD operations implemented Delete Operation.
