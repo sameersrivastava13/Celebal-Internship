@@ -9,3 +9,7 @@ Intersnhip assigned work:
 8) Selenium 
 9) From CRUD operations implemented Update Operation.
 10) From CRUD operations implemented Delete Operation.
+
+
+![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
+
