@@ -10,7 +10,7 @@ Intersnhip assigned work:
 9) From CRUD operations implemented Update Operation.
 10) From CRUD operations implemented Delete Operation.
 11) GET and POST api requests implementaion
-12) PUT api request implementation.
+12) PUT & DELETE api request implementation.
 
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
