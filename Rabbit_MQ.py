@@ -4,17 +4,22 @@
 try:
     import pika
 except Exception as e:
-    print("Some modules are missing.".format_map(e))
+    print("Some modules are missing {}".format_map(e))
 
-# Dry code
+# object oriented program
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
+class RabbitMq(object):
+    def __init__(self, queue='hello'):
+        self._connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
+        self._channel = self._connection.channel()
+        self.queue = queue
+        self._channel.queue_declare(queue=self.queue)
 
-channel = connection.channel()
+    def publish(self, payload={}):
+        self._channel.basic_publish(exchange='',
+                                    routing_key="hello",
+                                    body=str(payload))
+        self._connection.close()
 
-channel.queue_declare(queue="Hello")
+#print("Published message")
 
-channel.basic_publish(exchange="", routing_key="Hello", body="Hello world")
-
-print("Published message")
-connection.close()
