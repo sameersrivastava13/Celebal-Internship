@@ -19,7 +19,10 @@ class RabbitMq(object):
         self._channel.basic_publish(exchange='',
                                     routing_key="hello",
                                     body=str(payload))
+        print("Published...")
         self._connection.close()
 
-#print("Published message")
+if __name__ == '__main__':
+    server = RabbitMq(queue='hello')
+    server.publish(payload={"Data":"Hello"})
 
