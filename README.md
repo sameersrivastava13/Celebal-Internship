@@ -12,6 +12,8 @@ Intersnhip assigned work:
 11) GET and POST api requests implementaion
 12) PUT & DELETE api request implementation.
 13) Working on Rabbit MQ
+14) Wrote a rabbitmq basic client server code in Object oriented way.
+
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
