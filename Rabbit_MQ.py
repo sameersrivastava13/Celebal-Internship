@@ -48,5 +48,5 @@ class RabbitMq():
 if __name__ == "__main__":
     server = RabbitmqConfigure(queue='hello',host='localhost', routing_key='hello', exchange='')
     rabbitmq = RabbitMq(server)
-    rabbitmq.publish(payload={"Data":22})
+    rabbitmq.publish(payload={"Data":13})
 
