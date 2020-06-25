@@ -17,11 +17,15 @@ class MetaClass(type):
             cls._instance[cls] = super(MetaClass, cls).__call__(*args, **kwargs)
             return cls._instance[cls]
 
+
 # now am adding a class so that if again i have to change something i can do
 # basically removing the hard coded part
 
+
 class RabbitmqConfigure(metaclass=MetaClass):
-    def __init__(self,queue='hello',host='localhost', routing_key='hello', exchange=''):
+    def __init__(
+        self, queue="hello", host="localhost", routing_key="hello", exchange=""
+    ):
         self.queue = queue
         self.host = host
         self.routing_key = routing_key
@@ -29,24 +33,39 @@ class RabbitmqConfigure(metaclass=MetaClass):
 
 
 # object oriented program
-class RabbitMq():
+class RabbitMq:
+    __slots__ = ["server", "_channel", "_connection"]
+
     def __init__(self, server):
         self.server = server
-
-        self._connection = pika.BlockingConnection(pika.ConnectionParameters(host=self.server.host))
+        self._connection = pika.BlockingConnection(
+            pika.ConnectionParameters(host=self.server.host)
+        )
         self._channel = self._connection.channel()
         self._channel.queue_declare(queue=self.server.queue)
 
+    def __enter__(self):
+        print("__enter__")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("__exit__")
+        self._connection.close()
+
     def publish(self, payload={}):
-        self._channel.basic_publish(exchange=self.server.exchange, routing_key=self.server.routing_key,
-                                    body=str(payload))
+        self._channel.basic_publish(
+            exchange=self.server.exchange,
+            routing_key=self.server.routing_key,
+            body=str(payload),
+        )
 
         print("Published Message : {}".format(payload))
-        self._connection.close()
 
 
 if __name__ == "__main__":
-    server = RabbitmqConfigure(queue='hello',host='localhost', routing_key='hello', exchange='')
-    rabbitmq = RabbitMq(server)
-    rabbitmq.publish(payload={"Data":13})
+    server = RabbitmqConfigure(
+        queue="hello", host="localhost", routing_key="hello", exchange=""
+    )
 
+    with RabbitMq(server) as rabbitmq:
+        rabbitmq.publish(payload={"Data": 13})

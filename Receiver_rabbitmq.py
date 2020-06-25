@@ -25,8 +25,9 @@ class RabbitMqServerConfigure(metaclass=MetaClass):
         self.queue = queue
 
 
-class RabbitmqServer():
+class RabbitmqServer:
     """Server is an object of class RabbitMqServerConfigure"""
+
     def __init__(self, server):
         self.server = server
         self._connection = pika.BlockingConnection(
@@ -36,23 +37,24 @@ class RabbitmqServer():
         self._temp = self._channel.queue_declare(queue=self.server.queue)
 
     @staticmethod
-    def callback(ch,method, properties, body):
+    def callback(ch, method, properties, body):
         print(" [x] Received %r" % body)
 
     def startserver(self):
         self._channel.basic_consume(
-            queue=self.server.queue, on_message_callback=RabbitmqServer.callback, auto_ack=False
+            queue=self.server.queue,
+            on_message_callback=RabbitmqServer.callback,
+            auto_ack=False,
         )
 
         self._channel.start_consuming()
 
-if __name__ == '__main__':
-    serverconfigure = RabbitMqServerConfigure(host='localhost',
-                                              queue='hello')
+
+if __name__ == "__main__":
+    serverconfigure = RabbitMqServerConfigure(host="localhost", queue="hello")
 
     server = RabbitmqServer(server=serverconfigure)
     server.startserver()
 
 
-#print(" [*] Waiting for messages. To exit press CTRL+C")
-
+# print(" [*] Waiting for messages. To exit press CTRL+C")
