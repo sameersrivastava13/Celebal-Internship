@@ -61,11 +61,28 @@ class RabbitMq:
 
         print("Published Message : {}".format(payload))
 
+class Image(object):
+
+    __slots__ = ["filename"]
+    def __init__(self,filename):
+        self.filename = filename
+
+    @property
+    def get(self):
+        with open(self.filename, "rb") as f:
+            data = f.read()
+        return data
+
+
 
 if __name__ == "__main__":
+
     server = RabbitmqConfigure(
         queue="hello", host="localhost", routing_key="hello", exchange=""
     )
 
+    image = Image(filename="login_image.png")
+    data = image.get
+
     with RabbitMq(server) as rabbitmq:
-        rabbitmq.publish(payload={"Data": 13})
+        rabbitmq.publish(payload=data)

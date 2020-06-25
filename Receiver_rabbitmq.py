@@ -1,8 +1,10 @@
 # code for rabbitMQ client and server.
 # receiver program
 
+
 try:
     import pika
+    import ast
 except Exception as e:
     print("Some modules are missing {}".format(e))
 
@@ -36,18 +38,25 @@ class RabbitmqServer:
         self._channel = self._connection.channel()
         self._temp = self._channel.queue_declare(queue=self.server.queue)
 
-    @staticmethod
-    def callback(ch, method, properties, body):
-        print(" [x] Received %r" % body)
-
     def startserver(self):
         self._channel.basic_consume(
             queue=self.server.queue,
-            on_message_callback=RabbitmqServer.callback,
+            on_message_callback=callback,
             auto_ack=False,
         )
 
         self._channel.start_consuming()
+
+
+def callback(ch, method, properties, body):
+    Payload = body.decode('utf-8')
+    Payload = ast.literal_eval(Payload)
+
+    with open("recieved.png", "wb") as f:
+        f.write(Payload)
+
+    print(type(Payload))
+    print("Data Recieved : {}".format(Payload))
 
 
 if __name__ == "__main__":
