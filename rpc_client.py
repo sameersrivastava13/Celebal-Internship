@@ -1,6 +1,9 @@
-import pika
-import uuid
-
+try:
+    import pika
+    import uuid
+    import asyncIO
+except Exception as e:
+    print("Modules are missing {}".format(e))
 
 class FibonacciRpcClient(object):
     def __init__(self):
@@ -38,9 +41,14 @@ class FibonacciRpcClient(object):
             self.connection.process_data_events()
         return int(self.response)
 
+if __name__ == '__main__':
 
-fibonacci_rpc = FibonacciRpcClient()
+    fibonacci_rpc = FibonacciRpcClient()
+    while True:
+        num = int(input())
+        print(" [x] Requesting fib(x)",num)
+        response = fibonacci_rpc.call(num)
+        print(" [.] Got %r" % response)
 
-print(" [x] Requesting fib(6)")
-response = fibonacci_rpc.call(6)
-print(" [.] Got %r" % response)
+
+
