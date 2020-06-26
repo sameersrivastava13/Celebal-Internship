@@ -16,6 +16,8 @@ Intersnhip assigned work:
 15) Completed sender and receiver code in Object Oriented manner.
 16) Modifying the code by adding context manager and slots.
 17) Sending image files from sender to receiver.
+18) Transceiver using Rabbitmq.
+
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
