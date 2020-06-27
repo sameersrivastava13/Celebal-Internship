@@ -1,7 +1,6 @@
 try:
     import pika
     import uuid
-    import asyncIO
 except Exception as e:
     print("Modules are missing {}".format(e))
 
