@@ -3,11 +3,43 @@ try:
 except Exception as e:
     print("Some modules are missing {}".format(e))
 
-connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
 
-channel = connection.channel()
+# Meta class
+class MetaClass(type):
+    """Singleton Design pattern"""
 
-channel.queue_declare(queue="rpc_queue")
+    _instance = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instance:
+            cls._instance[cls] = super(MetaClass, cls).__call__(*args, **kwargs)
+            return cls._instance[cls]
+
+
+class RabbitMqServerConfigure(metaclass=MetaClass):
+    def __init__(self, host="localhost", queue="rpc_queue"):
+        """Server initialization"""
+        self.host = host
+        self.queue = queue
+
+
+class RabbitmqServer:
+    """Server is an object of class RabbitMqServerConfigure"""
+
+    def __init__(self, server):
+        self.server = server
+        self._connection = pika.BlockingConnection(
+            pika.ConnectionParameters(host=self.server.host)
+        )
+        self._channel = self._connection.channel()
+        self._temp = self._channel.queue_declare(queue=self.server.queue)
+
+    def startserver(self):
+        self._channel.basic_qos(prefetch_count=1)
+        self._channel.basic_consume(queue="rpc_queue", on_message_callback=on_request)
+
+        print(" [x] Awaiting RPC requests")
+        self._channel.start_consuming()
 
 
 def fib(n):
@@ -22,9 +54,9 @@ def fib(n):
 def on_request(ch, method, props, body):
     n = int(body)
 
-    #print(" [.] fib(%s)" % n)
+    # print(" [.] fib(%s)" % n)
     response = input("Write your response=")
-    #response = fib(n)
+    # response = fib(n)
 
     ch.basic_publish(
         exchange="",
@@ -35,11 +67,8 @@ def on_request(ch, method, props, body):
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
-channel.basic_qos(prefetch_count=1)
-channel.basic_consume(queue="rpc_queue", on_message_callback=on_request)
+if __name__ == "__main__":
+    serverconfigure = RabbitMqServerConfigure(host="localhost", queue="rpc_queue")
 
-print(" [x] Awaiting RPC requests")
-channel.start_consuming()
-
-
-
+    server = RabbitmqServer(server=serverconfigure)
+    server.startserver()
