@@ -31,6 +31,7 @@ class RabbitmqServer:
     """Server is an object of class RabbitMqServerConfigure"""
 
     def __init__(self, server):
+
         self.server = server
         self._connection = pika.BlockingConnection(
             pika.ConnectionParameters(host=self.server.host)
