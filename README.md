@@ -18,6 +18,8 @@ Intersnhip assigned work:
 17) Sending image files from sender to receiver.
 18) Transceiver using Rabbitmq.
 19) Work queue in Rabbit MQ.
+20) Sending files using rabbitmq.
+
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
