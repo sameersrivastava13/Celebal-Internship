@@ -56,6 +56,9 @@ class RabbitMq:
         self._channel.basic_publish(
             exchange=self.server.exchange,
             routing_key=self.server.routing_key,
+            properties=pika.BasicProperties(
+                expiration='6000',
+            ),
             body=str(payload),
         )
 
