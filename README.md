@@ -11,15 +11,16 @@ Intersnhip assigned work:
 10) From CRUD operations implemented Delete Operation.
 11) GET and POST api requests implementaion
 12) PUT & DELETE api request implementation.
-13) Working on Rabbit MQ
-14) Wrote a rabbitmq basic client server code in Object oriented way.
-15) Completed sender and receiver code in Object Oriented manner.
-16) Modifying the code by adding context manager and slots.
-17) Sending image files from sender to receiver.
-18) Transceiver using Rabbitmq.
-19) Work queue in Rabbit MQ.
-20) Sending files using rabbitmq.
 
+==> Working on Rabbit MQ:
+1) Wrote a rabbitmq basic client server code in Object oriented way.
+2) Completed sender and receiver code in Object Oriented manner.
+3) Modifying the code by adding context manager and slots.
+4) Sending image files from sender to receiver.
+5) Transceiver using Rabbitmq.
+6) Work queue in Rabbit MQ.
+7) Sending files using rabbitmq.
+8) Queue Timeout.
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
