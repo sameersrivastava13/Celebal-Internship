@@ -22,13 +22,14 @@ delay_channel.queue_declare(
         "x-message-ttl": 5000,
         "x-dead-letter-exchange": "amq.direct",
         "x-dead-letter-routing-key": "hello",
-    },
+    }
 )
 
+message = input("enter=\t")
 delay_channel.basic_publish(
     exchange="",
     routing_key="hello_delay",
-    body="test",
+    body=message,
     properties=pika.BasicProperties(delivery_mode=2),
 )
 
