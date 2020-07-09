@@ -23,6 +23,9 @@ Intersnhip assigned work:
 8) Queue Timeout.
 9) Scheduling Messages in RabbitMQ.
 
+==> Task Assigned:
+-> Completed the task assigned to extract data from given API and store it in CSV format. 
+
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
