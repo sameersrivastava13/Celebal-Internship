@@ -27,7 +27,7 @@ Intersnhip assigned work:
 1) Completed the task assigned to extract data from given API and store it in CSV format. 
 2) Another approach to the same task to extract data from a JSON API and store it in CSV format.
 3) Generic code for AWS Secret manager.
-
+4) Redshift Geneirc Code added.
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
