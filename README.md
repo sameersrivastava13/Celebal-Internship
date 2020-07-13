@@ -27,7 +27,7 @@
 
 ---
 
-##Task Assigned:
+## Task Assigned:
 1) Completed the task assigned to extract data from given API and store it in CSV format. 
 2) Another approach to the same task to extract data from a JSON API and store it in CSV format.
 3) Generic code for AWS Secret manager.
