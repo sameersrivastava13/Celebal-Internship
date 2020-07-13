@@ -1,7 +1,7 @@
-Intersnhip assigned work:
-1) PEP 8 & Conditional statements
-2) class & objects and Python MySql
-3) Multithreading & PyODBC
+## Intersnhip assigned work:
+1) PEP 8 & Conditional statements.
+2) class & objects and Python MySql.
+3) Multithreading & PyODBC.
 4) Multiprocessing
 5) asyncIO program
 6) Rest Api using the Flask Framework.
@@ -9,10 +9,12 @@ Intersnhip assigned work:
 8) Selenium 
 9) From CRUD operations implemented Update Operation.
 10) From CRUD operations implemented Delete Operation.
-11) GET and POST api requests implementaion
+11) GET and POST api requests implementaion.
 12) PUT & DELETE api request implementation.
 
-==> Working on Rabbit MQ:
+---
+
+## Working on Rabbit MQ:
 1) Wrote a rabbitmq basic client server code in Object oriented way.
 2) Completed sender and receiver code in Object Oriented manner.
 3) Modifying the code by adding context manager and slots.
