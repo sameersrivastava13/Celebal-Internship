@@ -33,12 +33,10 @@
 3) Generic code for AWS Secret manager.
 4) Redshift Geneirc Code added.
 5) Module to move objects from source bucket to destination in AWS using boto3.
-<<<<<<< HEAD
-=======
 6) Custom Exception handling and Optimizing the code.
 7) Module to filter the raw data, return and pass it from s3 to redshift. 
+8) Working on Migrating the entire infrastructure to AWS.
 
->>>>>>> 20db367f1d4b4440b31e1e43b63f74809928397c
 
 ![Capture](https://user-images.githubusercontent.com/56088741/84587342-0e55db80-ae3c-11ea-9050-8cbae85af5d3.PNG)
 
